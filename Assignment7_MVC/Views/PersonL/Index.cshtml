@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Assignment7_MVC.Models.PersonLite>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PersonKey)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apartment)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Street)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ZipCode)
+        </th>
+    </tr>
+    @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => item.PersonKey)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Email)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Apartment)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.Street)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.City)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => item.ZipCode)
+                </td>
+            </tr>
+        }
+</table>
