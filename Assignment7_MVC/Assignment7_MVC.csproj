@@ -247,6 +247,7 @@
       <DependentUpon>CommunityAssistModel1.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Login.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Person.cs">
       <DependentUpon>CommunityAssistModel1.tt</DependentUpon>
