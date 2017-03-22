@@ -42,7 +42,7 @@ namespace Assignment7_MVC.Controllers
                         };
 
             List<PersonLite> peepsList = new List<PersonLite>();
-            foreach(var p in peeps)
+            foreach (var p in peeps)
             {
                 PersonLite pl = new Models.PersonLite();
                 pl.PersonKey = (int)p.PersonKey;
@@ -64,11 +64,31 @@ namespace Assignment7_MVC.Controllers
             return View();
         }
 
-        public ActionResult Create([Bind(Include ="LastName, FirstName, Email, Password, Apartment, Street, City, State, ZipCode, HomePhone, WorkPhone")]
-        PersonLite pl)
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create([Bind(Include = "LastName, FirstName, Email, Password, Apartment, Street, City, State, ZipCode, HomePhone, WorkPhone")] PersonLite pl)
         {
             int result = db.usp_Register(pl.LastName, pl.FirstName, pl.Email, pl.Password, pl.Apartment, pl.Street, pl.City, pl.State, pl.ZipCode, pl.HomePhone, pl.WorkPhone);
             return View();
         }
+
+        public ActionResult Delete(int? id)
+        {
+            Person person = db.People.Find(id);
+            return View();
+        }
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Person person = db.People.Find(id);
+            db.People.Remove(person);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+
     }
 }
