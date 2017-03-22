@@ -76,7 +76,7 @@ namespace Assignment7_MVC.Controllers
         public ActionResult Delete(int? id)
         {
             Person person = db.People.Find(id);
-            return View();
+            return View(person);
         }
 
         [HttpPost, ActionName("Delete")]
